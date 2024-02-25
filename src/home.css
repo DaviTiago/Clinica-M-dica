@@ -1,0 +1,14 @@
+main {
+    padding: 10px;
+}
+
+h2 {
+    display: block;
+    color: var(--cor-terciaria);
+    text-align: center;
+}
+
+p {
+    display: block;
+    text-align: center;
+}
