@@ -11,35 +11,14 @@ body {
     font-weight: normal;
 }
 
-header.container {
-    display: flex;
-    justify-content: space-between;
-    color: var(--cor-primaria);
-    padding: 10px;
-    border-bottom: 2px solid var(--cor-secundaria);
+header#header-restrito {
+    margin: 0;
 }
 
-nav {
-    display: flex;
-    align-items: center;
+nav#navbar {
+    padding: 5px;
 }
 
-ul {
-    display: flex;
-    gap: 20px;
-    padding: 0;
-    list-style: none;
-}
-
-nav a {
-    padding: 10px;
-    border-radius: 10px;
-    color: var(--cor-primaria);
-    text-decoration: none;
-}
-
-nav a:hover {
-    background-color: #004E4C;
-    color: white;
-    transition: 0.3s ease;
+h1 {
+    text-align: center;
 }
