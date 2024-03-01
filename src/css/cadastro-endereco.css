@@ -1,0 +1,63 @@
+:root {
+    --cor-primaria: #00995D;
+    --cor-secundaria: #004E4C;
+    --cor-terciaria: #808080;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    background-color: var(--cor-secundaria);
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+form fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border: none;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+form input {
+    height: 20px;
+}
+
+form button {
+    display: block;
+    margin: 10px auto 0px auto;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    padding: 5px;
+}
+
+form button:hover {
+    background-color: var(--cor-primaria);
+    color: white;
+    transition: 0.3s ease;
+}
+
+footer {
+    text-align: center;
+}

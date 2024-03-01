@@ -11,7 +11,7 @@ body {
     font-weight: normal;
 }
 
-header.container {
+header {
     display: flex;
     justify-content: space-between;
     color: var(--cor-primaria);

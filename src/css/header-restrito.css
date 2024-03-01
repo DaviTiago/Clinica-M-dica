@@ -70,6 +70,7 @@ nav a {
     display: block;
     padding: 10px;
     color: black;
+    text-decoration: none;
 }
 
 nav a:hover {
@@ -101,11 +102,6 @@ h1 {
     }
 
     nav ul {
-        margin-top: 10px;
-    }
-
-    main.container {
-        margin-top: 0;
-        border-radius: 0;
+        margin: 10px;
     }
 }
