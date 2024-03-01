@@ -5,45 +5,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="../../src/header-restrito.css">
+    <link rel="stylesheet" href="../../src/cadastro-funcionario.css">
     <title>Cadastro de Funcionários</title>
 </head>
 
 <body>
-    <header class="row" id="header-restrito">
-        <nav class="navbar navbar-light col-5" id="navbar">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                controls="navbarNav" expanded="false">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Cadastro de Funcionários</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Cadastro de Pacientes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Listagem Funcionários</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Listagem Pacientes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Listagem Endereços</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Listagem Agendamento de Consultas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Listagem Agendamento de Consultas (Médico)</a>
-                    </li>
-                </ul>
-            </div>
+    <header>
+        <div>
+            <span class="material-symbols-outlined">
+                navigate_next
+            </span>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">Cadastro de Funcionários</a>
+                </li>
+                <li>
+                    <a href="#">Cadastro de Pacientes</a>
+                </li>
+                <li>
+                    <a href="#">Listagem Funcionários</a>
+                </li>
+                <li>
+                    <a href="#">Listagem Pacientes</a>
+                </li>
+                <li>
+                    <a href="#">Listagem Endereços</a>
+                </li>
+                <li>
+                    <a href="#">Listagem Agendamento de Consultas</a>
+                </li>
+                <li>
+                    <a href="#">Listagem Agendamento de Consultas (Médico)</a>
+                </li>
+            </ul>
         </nav>
-        <h1>Clinic Pax Anima</h1>
+        <div>
+            <h1>Clinic Pax Anima</h1>
+        </div>
+        <div><img src="#" alt="Logo Clínica Pax Anima"></div>
     </header>
+
+    <main class="container">
+        <form name="cadastro-funcionario" action="placeholder.php" method="post" class="">
+            <div class="form-group row">
+                <div class="col-md-7">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" id="idnome" class="form-control">
+                </div>
+                <div class="col-md-5">
+                    <label>Sexo</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sexo" id="idmasculino" value="masculino">
+                        <label class="form-check-label" for="idmasculino">Masculino</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sexo" id="idfeminino" value="feminino">
+                        <label class="form-check-label" for="idfeminino">Feminino</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="idemail" class="form-control">
+                </div>
+                <div class="col-md-6">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" name="telefone" id="idtelefone" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-3">
+                    <label for="cep">CEP</label>
+                    <input type="text" name="cep" id="idcep" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label for="logradouro">Logradouro</label>
+                    <input type="text" name="logradouro" id="idlogradouro" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" name="cidade" id="idcidade" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label for="estado">Estado</label>
+                    <input type="text" name="estado" id="idestado" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-8">
+                    <label for="data-inicio">Início do contrato</label>
+                    <input type="date" name="data-inicio" id="iddata-inicio" class="form-control">
+                </div>
+
+                <div class="col-md-4">
+                    <label for="salario">Salário</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">R$</span>
+                        </div>
+                        <input type="number" name="salario" step="500" id="idsalario" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="idsenha" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </main>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="cadastro-funcionario.js"></script>
 </body>

@@ -11,14 +11,101 @@ body {
     font-weight: normal;
 }
 
-header#header-restrito {
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
     margin: 0;
+    padding: 20px 0;
+    border-bottom: 2px solid var(--cor-secundaria);
 }
 
-nav#navbar {
-    padding: 5px;
+header>div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+header>div:first-child {
+    justify-content: flex-start;
+}
+
+header>div:last-child {
+    justify-content: flex-end;
+}
+
+span {
+    cursor: pointer;
+    user-select: none;
+    z-index: 1;
+}
+
+nav {
+    position: absolute;
+    left: -500px;
+    top: 0;
+    height: 100vh;
+    background-color: var(--cor-primaria);
+}
+
+.menu {
+    left: 0;
+    transition: 1.5s ease;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 96px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+nav li {
+    border-top: 1px solid black;
+}
+
+nav a {
+    display: block;
+    padding: 10px;
+    color: black;
+}
+
+nav a:hover {
+    background-color: var(--cor-secundaria);
+    color: white;
+    transition: 0.3s ease;
+    text-decoration: none;
 }
 
 h1 {
-    text-align: center;
+    color: var(--cor-primaria);
+    font-weight: bold;
+}
+
+@media screen and (max-width: 984px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .menu {
+        display: block;
+        position: static;
+        height: 100%;
+        background-color: white;
+    }
+
+    nav ul {
+        margin-top: 10px;
+    }
+
+    main.container {
+        margin-top: 0;
+        border-radius: 0;
+    }
 }
