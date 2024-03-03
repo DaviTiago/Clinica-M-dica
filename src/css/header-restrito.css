@@ -88,6 +88,7 @@ h1 {
 @media screen and (max-width: 984px) {
     header {
         flex-direction: column;
+        gap: 20px;
     }
 
     nav {
@@ -103,5 +104,6 @@ h1 {
 
     nav ul {
         margin: 10px;
+        text-align: center;
     }
 }
