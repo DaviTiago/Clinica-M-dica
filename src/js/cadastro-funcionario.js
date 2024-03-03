@@ -1,36 +1,13 @@
-const nav = document.querySelector('nav');
-const span = document.querySelector('span');
-
-window.addEventListener("resize", () => {
-    if (window.innerWidth < 984) {
-        span.innerText = "expand_more"
-    } else {
-        span.innerText = "navigate_next"
-    }
-});
-
-window.addEventListener("load", () => {
-    if (window.innerWidth < 984) {
-        span.innerText = "expand_more"
-    } else {
-        span.innerText = "navigate_next"
-    }
-});
-
-span.addEventListener('click', () => {
-    if (nav.classList.contains('menu')) {
-        nav.classList.remove('menu');
-        if (window.innerWidth < 984) {
-            span.innerText = "expand_more"
+const checkboxMedico = document.querySelector('#idis-medico');
+checkboxMedico.addEventListener('click', function () {
+    const campoMedicos = document.querySelectorAll('.campo-medico');
+    campoMedicos.forEach(campo => {
+        if (checkboxMedico.checked) {
+            campo.classList.remove('hidden');
+            campo.classList.add('shown');
         } else {
-            span.innerText = "navigate_next"
+            campo.classList.remove('shown');
+            campo.classList.add('hidden');
         }
-    } else {
-        nav.classList.add('menu');
-        if (window.innerWidth < 984) {
-            span.innerText = "expand_less"
-        } else {
-            span.innerText = "navigate_before"
-        }
-    }
+    })
 });
