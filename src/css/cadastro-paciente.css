@@ -7,9 +7,18 @@
 main.container {
     width: 60%;
     margin-top: 30px;
+}
+
+h2 {
+    text-align: center;
+    font-weight: bold;
+    color: var(--cor-terciaria);
+}
+
+form {
+    padding: 10px;
     background-color: var(--cor-secundaria);
     border-radius: 5px;
-    padding: 10px;
 }
 
 div.form-group {
@@ -35,10 +44,6 @@ button.btn {
 }
 
 @media screen and (max-width: 767px) {
-    body {
-        width: 100%;
-    }
-
     main.container {
         max-width: 100%;
         width: 100%;
