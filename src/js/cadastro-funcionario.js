@@ -1,5 +1,5 @@
-const checkboxMedico = document.querySelector('#idis-medico');
-checkboxMedico.addEventListener('click', function () {
+const checkboxMedico = document.querySelector('#is-medico');
+checkboxMedico.addEventListener('click', () => {
     const campoMedicos = document.querySelectorAll('.campo-medico');
     campoMedicos.forEach(campo => {
         if (checkboxMedico.checked) {

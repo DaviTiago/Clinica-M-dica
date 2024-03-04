@@ -28,6 +28,7 @@ header>div {
 
 header>div:first-child {
     justify-content: flex-start;
+    align-items: center;
 }
 
 header>div:last-child {
@@ -35,13 +36,14 @@ header>div:last-child {
 }
 
 span {
+    position: fixed;
     cursor: pointer;
     user-select: none;
     z-index: 1;
 }
 
 nav {
-    position: absolute;
+    position: fixed;
     left: -500px;
     top: 0;
     height: 100vh;
@@ -83,6 +85,11 @@ nav a:hover {
 h1 {
     color: var(--cor-primaria);
     font-weight: bold;
+}
+
+footer p {
+    margin-top: 16px;
+    text-align: center;
 }
 
 @media screen and (max-width: 984px) {
