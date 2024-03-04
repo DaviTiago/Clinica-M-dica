@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../src/css/header-footer-geral.css">
+    <link rel="stylesheet" href="../../src/css/formulario-geral.css">
+    <title>Agendamento</title>
+</head>
+
+<body>
+    <header>
+        <h1>Clinic Pax Anima</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="#">Galeria</a>
+                </li>
+                <li>
+                    <a href="agendamento.html">Agendamento</a>
+                </li>
+                <li>
+                    <a href="cadastro-endereco.html">Novo Endereço</a>
+                </li>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+            </ul>
+        </nav>
+        <img src="#" alt="Logo Clinic Pax Anima">
+    </header>
+    <main class="container">
+        <form action="placeholder.php" method="get" name="Agendamento">
+            <fieldset>
+                <div>
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" id="nome" placeholder="Digite o Nome">
+                </div>
+                
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Digite o Email">
+                </div>
+
+                <div>
+                    <label for="sexo">Sexo</label>
+                    <input type="radio" name="sexo" id="sexo" value="feminino">
+                    <label for="feminino">Feminino</label>
+                    <input type="radio" name="sexo" id="sexo" value="masculino">
+                    <label for="masculino">Masculino</label>
+                </div>
+
+                <div>
+                    <label for="data">Data</label>
+                    <input type="date" name="data" id="data">
+                </div>
+
+                <div>
+                    <label for="horario">Horário</label>
+                    <select name="horario" id="horario" required>
+                        <label for="horario">Horário</label>
+                        <option value="0">Selecione o Horário</option>
+                        <option value="8">8h</option>
+                        <option value="9">9h</option>
+                        <option value="10">10h</option>
+                        <option value="11">11h</option>
+                        <option value="12">12h</option>
+                        <option value="13">13h</option>
+                        <option value="14">14h</option>
+                        <option value="15">15h</option>
+                        <option value="16">16h</option>
+                        <option value="17">17h</option>
+                        </select>
+                </div>
+
+                <div>
+                    <label for="especialidade">Especialidade</label>
+                    <select name="especialidade" id="especialidade" required>
+                        <label for="especialidade">Especialidade</label>
+                        <option value="0">Selecione a Especialidade</option>
+                        <option value="1">Cardiologista</option>
+                        <option value="2">Dermatologista</option>
+                        <option value="3">Endocrinologista</option>
+                        <option value="4">Gastroenterologista</option>
+                        <option value="5">Ginecologista</option>
+                        <option value="6">Infectologista</option>
+                        <option value="7">Nefrologista</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="medico">Médico</label>
+                    <select name="medico" id="medico" required>
+                        <label for="medico">Médico</label>
+                        <option value="0">Selecione o Médico</option>
+                        <option value="1">Dr. Fulano</option>
+                        <option value="2">Dr. Ciclano</option>
+                        <option value="3">Dr. Beltrano</option>
+
+                    </select>
+                </div>
+
+            </fieldset>
+            <button type="submit">Agendar</button>
+        </form>
+    </main>
+    <footer>
+        <p>© 2021 Clinic Pax Anima</p>
+    </footer>
+
+</body>
