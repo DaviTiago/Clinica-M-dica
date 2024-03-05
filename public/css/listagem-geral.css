@@ -1,0 +1,27 @@
+main{
+    padding: 10px;
+}
+
+.container{
+    /*position*/
+    align-items: center;
+    justify-content: center;
+    /**/
+    padding-top: 10px;
+}
+.colorHeaderList{
+    border-radius: 10px;
+    background-color: #00995D;
+    color: white;
+}
+.nextLine{
+
+}
+/*Classe que oculta e mostra o conteudo das listas*/
+section.tabs {
+    display: none;
+}
+
+section.tabActive{
+    display: block;
+}
