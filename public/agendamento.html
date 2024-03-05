@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../src/css/agendamento.css">
-    <link rel="stylesheet" href="../../src/css/header-footer-geral.css">
+    <link rel="stylesheet" href="css/agendamento.css">
+    <link rel="stylesheet" href="css/header-footer-geral.css">
 
 
     <title>Agendamento</title>
@@ -33,13 +33,13 @@
                 </li>
             </ul>
         </nav>
-        <img src="../../src/images/logo.png" alt="Logo Clinic Pax Anima">
+        <img src="images/logo.png" alt="Logo Clinic Pax Anima">
     </header>
     <main class="container">
         <div>
             <h2>Agendamento de Consulta</h2>
         </div>
-        <form action="placeholder.php" method="get" name="Agendamento">
+        <form action="placeholder.php" method="get" name="agendamento">
             <fieldset>
                 <div class="row">
                     <div class="col">
@@ -75,7 +75,7 @@
                         <label for="horario">Horário</label>
                         <select name="horario" id="horario" required>
                             <label for="horario">Horário</label>
-                            <option value="0">Selecione o Horário</option>
+                            <option selected disabled>Selecione o Horário</option>
                             <option value="8">8h</option>
                             <option value="9">9h</option>
                             <option value="10">10h</option>
@@ -96,14 +96,14 @@
                         <label for="especialidade">Especialidade</label>
                         <select name="especialidade" id="especialidade" required>
                             <label for="especialidade">Especialidade</label>
-                            <option value="0">Selecione a Especialidade</option>
-                            <option value="1">Cardiologista</option>
-                            <option value="2">Dermatologista</option>
-                            <option value="3">Endocrinologista</option>
-                            <option value="4">Gastroenterologista</option>
-                            <option value="5">Ginecologista</option>
-                            <option value="6">Infectologista</option>
-                            <option value="7">Nefrologista</option>
+                            <option selected disabled>Selecione a Especialidade</option>
+                            <option value="0">Cardiologista</option>
+                            <option value="1">Dermatologista</option>
+                            <option value="2">Endocrinologista</option>
+                            <option value="3">Gastroenterologista</option>
+                            <option value="4">Ginecologista</option>
+                            <option value="5">Infectologista</option>
+                            <option value="6">Nefrologista</option>
                         </select>
                     </div>
 
@@ -111,17 +111,17 @@
                         <label for="medico">Médico</label>
                         <select name="medico" id="medico" required>
                             <label for="medico">Médico</label>
-                            <option value="0">Selecione o Médico</option>
-                            <option value="1">Dr. Fulano</option>
-                            <option value="2">Dr. Ciclano</option>
-                            <option value="3">Dr. Beltrano</option>
+                            <option selected disabled>Selecione o Médico</option>
+                            <option value="0">Dr. Fulano</option>
+                            <option value="1">Dr. Ciclano</option>
+                            <option value="2">Dr. Beltrano</option>
 
                         </select>
                     </div>
                 </div>
                 <button type="submit">Agendar</button>
             </fieldset>
-            
+
         </form>
     </main>
     <footer>

@@ -1,21 +1,22 @@
-:root {
-    --cor-primaria: #00995D;
-    --cor-secundaria: #004E4C;
-    --cor-terciaria: #808080;
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
 }
 
 main.container {
-    
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-       
-    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
 
 h2 {
+    font-size: 2em;
     text-align: center;
-    font-weight: bold;
     color: var(--cor-terciaria);
 }
 
@@ -47,7 +48,6 @@ form fieldset {
 .col {
     flex-shrink: 1;
     padding: 0 10px;
-
 }
 
 .radio-option {
@@ -55,6 +55,7 @@ form fieldset {
     align-items: center;
     margin-left: 0;
 }
+
 .radio-option input {
     margin-right: 0px;
 }
@@ -65,11 +66,14 @@ label {
     color: white;
 }
 
-input, select {
+input,
+select {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
     box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
 }
 
 button {
@@ -111,5 +115,3 @@ main.container a:hover {
         width: 100%;
     }
 }
-
-

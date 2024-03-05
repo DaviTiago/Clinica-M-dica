@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../src/css/header-footer-geral.css">
-    <link rel="stylesheet" href="../../src/css/formulario-geral.css">
+    <link rel="stylesheet" href="css/header-footer-geral.css">
+    <link rel="stylesheet" href="css/login.css">
     <title>Login</title>
 </head>
 
@@ -32,28 +32,31 @@
                 </li>
             </ul>
         </nav>
-        <img src="../../src/images/logo.png" alt="Logo Clinic Pax Anima">
+        <img src="images/logo.png" alt="Logo Clinic Pax Anima">
     </header>
     <main class="container">
         <h2>Login</h2>
-        <form action="placeholder.php" method="get" name="Cadastro-endereco">
+        <form action="placeholder.php" method="get" name="login">
             <fieldset>
                 <div>
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" placeholder="Email">
+                    <span id="email-span"></span>
                 </div>
                 <div>
                     <label for="senha">Senha</label>
                     <input type="password" name="senha" id="senha" placeholder="Senha">
+                    <span id="password-span"></span>
                 </div>
             </fieldset>
             <!-- <button type="submit">Cadastrar</button> -->
-            <a href="../restrito/cadastro-funcionario.html">Cadastrar</a>
+            <a href="cadastro-funcionario.html">Cadastrar</a>
         </form>
     </main>
     <footer>
         <p>© 2021 Clinic Pax Anima</p>
     </footer>
+    <script src="js/login.js"></script>
 </body>
 
 </html>

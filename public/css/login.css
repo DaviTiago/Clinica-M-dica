@@ -1,0 +1,108 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+main.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-size: 2em;
+    text-align: center;
+    color: var(--cor-terciaria);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    background-color: var(--cor-secundaria);
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+form fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border: none;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+form input {
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+form button {
+    display: block;
+    margin: 10px auto 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    padding: 5px;
+    background-color: var(--cor-primaria);
+    color: #fff;
+}
+
+form button:hover {
+    background-color: #00a09b;
+    transition: 0.3s ease;
+}
+
+footer {
+    text-align: center;
+}
+
+/* Estilização do link enquanto ainda não há validação de formulários para fazer com button */
+main.container a {
+    color: white;
+    background-color: var(--cor-primaria);
+    border-radius: 5px;
+    width: fit-content;
+    margin: 20px auto 0;
+    padding: 5px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+main.container a:hover {
+    background-color: #00a09b;
+    transition: 0.3s ease;
+}
+
+span {
+    color: red;
+    display: block;
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        height: 0;
+    }
+
+    form {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    form input {
+        width: 100%;
+    }
+}
