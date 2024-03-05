@@ -38,18 +38,6 @@ div#campo-sexo label {
     margin: 0;
 }
 
-div#checkbox-medico {
-    padding-top: 20px;
-}
-
-.campo-medico {
-    display: none;
-}
-
-.shown {
-    display: block;
-}
-
 button.btn {
     display: block;
     margin: 20px auto;

@@ -32,26 +32,27 @@
                 </li>
             </ul>
         </nav>
-        <img src="#" alt="Logo Clinic Pax Anima">
+        <img src="../../src/images/logo.png" alt="Logo Clinic Pax Anima">
     </header>
     <main class="container">
+        <h2>Cadastro de Endereços</h2>
         <form action="placeholder.php" method="get" name="Cadastro-endereco">
             <fieldset>
                 <div>
-                    <label for="cep">CEP</label>
-                    <input type="text" name="cep" id="cep" placeholder="Digite o CEP">
+                    <label for="cep">CEP*</label>
+                    <input type="text" name="cep" id="cep" placeholder="Digite o CEP" required>
                 </div>
                 <div>
-                    <label for="logradouro">Logradouro</label>
-                    <input type="text" name="logradouro" id="logradouro" placeholder="Digite o Logradouro">
+                    <label for="logradouro">Logradouro*</label>
+                    <input type="text" name="logradouro" id="logradouro" placeholder="Digite o Logradouro" required>
                 </div>
                 <div>
-                    <label for="cidade">Cidade</label>
-                    <input type="text" name="cidade" id="cidade" placeholder="Digite a Cidade">
+                    <label for="cidade">Cidade*</label>
+                    <input type="text" name="cidade" id="cidade" placeholder="Digite a Cidade" required>
                 </div>
                 <div>
-                    <label for="estado">Estado</label>
-                    <input type="text" name="estado" id="estado" placeholder="Digite o Estado">
+                    <label for="estado">Estado*</label>
+                    <input type="text" name="estado" id="estado" placeholder="Digite o Estado" required>
                 </div>
             </fieldset>
             <button type="submit">Cadastrar</button>
