@@ -87,9 +87,18 @@ h1 {
     font-weight: bold;
 }
 
-footer p {
-    margin-top: 16px;
+footer {
+    margin: 10px 0;
     text-align: center;
+    font-size: 1.2em;
+}
+
+footer a {
+    color: var(--cor-primaria);
+}
+
+footer a:hover {
+    color: var(--cor-secundaria);
 }
 
 @media screen and (max-width: 984px) {

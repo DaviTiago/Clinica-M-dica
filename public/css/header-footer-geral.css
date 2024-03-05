@@ -43,8 +43,18 @@ nav a:hover {
     transition: 0.3s ease;
 }
 
-footer p {
+footer {
+    margin-bottom: 10px;
     text-align: center;
+    font-size: 1.2em;
+}
+
+footer a {
+    color: var(--cor-primaria);
+}
+
+footer a:hover {
+    color: var(--cor-secundaria);
 }
 
 @media screen and (max-width: 984px) {
