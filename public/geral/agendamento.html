@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../src/css/agendamento.css">
     <link rel="stylesheet" href="../../src/css/header-footer-geral.css">
-    <link rel="stylesheet" href="../../src/css/formulario-geral.css">
+
+
     <title>Agendamento</title>
 </head>
 
@@ -34,11 +36,29 @@
         <img src="../../src/images/logo.png" alt="Logo Clinic Pax Anima">
     </header>
     <main class="container">
+        <div>
+            <h2>Agendamento de Consulta</h2>
+        </div>
         <form action="placeholder.php" method="get" name="Agendamento">
             <fieldset>
-                <div>
-                    <label for="nome">Nome</label>
-                    <input type="text" name="nome" id="nome" placeholder="Digite o Nome">
+                <div class="row">
+                    <div class="col">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome" placeholder="Digite o Nome">
+                    </div>
+
+                    <div class="col">
+                        <label for="sexo">Sexo</label>
+                        <div class="radio-option">
+                            <label for="feminino">Feminino</label>
+                            <input type="radio" name="sexo" id="feminino" value="feminino">
+                        </div>
+                        <div class="radio-option">
+                            <label for="masculino">Masculino</label>
+                            <input type="radio" name="sexo" id="masculino" value="masculino">
+                        </div>
+
+                    </div>
                 </div>
 
                 <div>
@@ -46,66 +66,62 @@
                     <input type="email" name="email" id="email" placeholder="Digite o Email">
                 </div>
 
-                <div>
-                    <label for="sexo">Sexo</label>
-                    <input type="radio" name="sexo" id="feminino" value="feminino">
-                    <label for="feminino">Feminino</label>
-                    <input type="radio" name="sexo" id="masculino" value="masculino">
-                    <label for="masculino">Masculino</label>
-                </div>
-
-                <div>
-                    <label for="data">Data</label>
-                    <input type="date" name="data" id="data">
-                </div>
-
-                <div>
-                    <label for="horario">Horário</label>
-                    <select name="horario" id="horario" required>
+                <div class="row">
+                    <div class="col">
+                        <label for="data">Data</label>
+                        <input type="date" name="data" id="data">
+                    </div>
+                    <div class="col">
                         <label for="horario">Horário</label>
-                        <option value="0">Selecione o Horário</option>
-                        <option value="8">8h</option>
-                        <option value="9">9h</option>
-                        <option value="10">10h</option>
-                        <option value="11">11h</option>
-                        <option value="12">12h</option>
-                        <option value="13">13h</option>
-                        <option value="14">14h</option>
-                        <option value="15">15h</option>
-                        <option value="16">16h</option>
-                        <option value="17">17h</option>
+                        <select name="horario" id="horario" required>
+                            <label for="horario">Horário</label>
+                            <option value="0">Selecione o Horário</option>
+                            <option value="8">8h</option>
+                            <option value="9">9h</option>
+                            <option value="10">10h</option>
+                            <option value="11">11h</option>
+                            <option value="12">12h</option>
+                            <option value="13">13h</option>
+                            <option value="14">14h</option>
+                            <option value="15">15h</option>
+                            <option value="16">16h</option>
+                            <option value="17">17h</option>
                         </select>
+                    </div>
                 </div>
 
-                <div>
-                    <label for="especialidade">Especialidade</label>
-                    <select name="especialidade" id="especialidade" required>
+
+                <div class="row">
+                    <div class="col">
                         <label for="especialidade">Especialidade</label>
-                        <option value="0">Selecione a Especialidade</option>
-                        <option value="1">Cardiologista</option>
-                        <option value="2">Dermatologista</option>
-                        <option value="3">Endocrinologista</option>
-                        <option value="4">Gastroenterologista</option>
-                        <option value="5">Ginecologista</option>
-                        <option value="6">Infectologista</option>
-                        <option value="7">Nefrologista</option>
-                    </select>
-                </div>
+                        <select name="especialidade" id="especialidade" required>
+                            <label for="especialidade">Especialidade</label>
+                            <option value="0">Selecione a Especialidade</option>
+                            <option value="1">Cardiologista</option>
+                            <option value="2">Dermatologista</option>
+                            <option value="3">Endocrinologista</option>
+                            <option value="4">Gastroenterologista</option>
+                            <option value="5">Ginecologista</option>
+                            <option value="6">Infectologista</option>
+                            <option value="7">Nefrologista</option>
+                        </select>
+                    </div>
 
-                <div>
-                    <label for="medico">Médico</label>
-                    <select name="medico" id="medico" required>
+                    <div class="col">
                         <label for="medico">Médico</label>
-                        <option value="0">Selecione o Médico</option>
-                        <option value="1">Dr. Fulano</option>
-                        <option value="2">Dr. Ciclano</option>
-                        <option value="3">Dr. Beltrano</option>
+                        <select name="medico" id="medico" required>
+                            <label for="medico">Médico</label>
+                            <option value="0">Selecione o Médico</option>
+                            <option value="1">Dr. Fulano</option>
+                            <option value="2">Dr. Ciclano</option>
+                            <option value="3">Dr. Beltrano</option>
 
-                    </select>
+                        </select>
+                    </div>
                 </div>
-
+                <button type="submit">Agendar</button>
             </fieldset>
-            <button type="submit">Agendar</button>
+            
         </form>
     </main>
     <footer>

@@ -1,0 +1,115 @@
+:root {
+    --cor-primaria: #00995D;
+    --cor-secundaria: #004E4C;
+    --cor-terciaria: #808080;
+}
+
+main.container {
+    
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+       
+    }
+
+h2 {
+    text-align: center;
+    font-weight: bold;
+    color: var(--cor-terciaria);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    background-color: var(--cor-secundaria);
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+form fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border: none;
+}
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+}
+
+.col {
+    flex-shrink: 1;
+    padding: 0 10px;
+
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+}
+.radio-option input {
+    margin-right: 0px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    display: block;
+    background-color: var(--cor-primaria);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: fit-content;
+    text-decoration: none;
+    text-align: center;
+    align-self: center;
+}
+
+button:hover {
+    background-color: #00a09b;
+    transition: 0.3s ease;
+}
+
+main.container a:hover {
+    background-color: var(--cor-primaria);
+    color: white;
+    transition: 0.3s ease;
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        height: 0;
+    }
+
+    form {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    form input {
+        width: 100%;
+    }
+}
+
+
