@@ -44,7 +44,6 @@ nav a:hover {
 }
 
 footer {
-    margin-bottom: 10px;
     text-align: center;
     font-size: 1.2em;
 }
@@ -82,5 +81,9 @@ footer a:hover {
     li a {
         display: block;
         border-radius: 0;
+    }
+
+    footer {
+        margin-top: 20px;
     }
 }

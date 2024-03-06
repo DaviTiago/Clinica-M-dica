@@ -43,12 +43,12 @@
             <fieldset>
                 <div class="row">
                     <div class="col">
-                        <label for="nome">Nome</label>
-                        <input type="text" name="nome" id="nome" placeholder="Digite o Nome">
+                        <label for="nome">Nome*</label>
+                        <input type="text" name="nome" id="nome" placeholder="Digite o Nome" required>
                     </div>
 
                     <div class="col">
-                        <label for="sexo">Sexo</label>
+                        <label>Sexo</label>
                         <div class="radio-option">
                             <label for="feminino">Feminino</label>
                             <input type="radio" name="sexo" id="feminino" value="feminino">
@@ -62,20 +62,19 @@
                 </div>
 
                 <div>
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="Digite o Email">
+                    <label for="email">Email*</label>
+                    <input type="email" name="email" id="email" placeholder="Digite o Email" required>
                 </div>
 
                 <div class="row">
                     <div class="col">
-                        <label for="data">Data</label>
-                        <input type="date" name="data" id="data">
+                        <label for="data">Data*</label>
+                        <input type="date" name="data" id="data" required>
                     </div>
                     <div class="col">
-                        <label for="horario">Horário</label>
+                        <label for="horario">Horário*</label>
                         <select name="horario" id="horario" required>
-                            <label for="horario">Horário</label>
-                            <option selected disabled>Selecione o Horário</option>
+                            <option selected disabled value="">Selecione o Horário</option>
                             <option value="8">8h</option>
                             <option value="9">9h</option>
                             <option value="10">10h</option>
@@ -93,10 +92,9 @@
 
                 <div class="row">
                     <div class="col">
-                        <label for="especialidade">Especialidade</label>
+                        <label for="especialidade">Especialidade*</label>
                         <select name="especialidade" id="especialidade" required>
-                            <label for="especialidade">Especialidade</label>
-                            <option selected disabled>Selecione a Especialidade</option>
+                            <option selected disabled value="">Selecione a Especialidade</option>
                             <option value="0">Cardiologista</option>
                             <option value="1">Dermatologista</option>
                             <option value="2">Endocrinologista</option>
@@ -108,10 +106,9 @@
                     </div>
 
                     <div class="col">
-                        <label for="medico">Médico</label>
+                        <label for="medico">Médico*</label>
                         <select name="medico" id="medico" required>
-                            <label for="medico">Médico</label>
-                            <option selected disabled>Selecione o Médico</option>
+                            <option selected disabled value="">Selecione o Médico</option>
                             <option value="0">Dr. Fulano</option>
                             <option value="1">Dr. Ciclano</option>
                             <option value="2">Dr. Beltrano</option>
