@@ -14,8 +14,11 @@ main{
     background-color: #00995D;
     color: white;
 }
-.nextLine{
 
+h2{
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: medium;
+    font-weight: normal;
 }
 /*Classe que oculta e mostra o conteudo das listas*/
 section.tabs {
