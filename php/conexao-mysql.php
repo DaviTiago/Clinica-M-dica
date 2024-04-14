@@ -1,11 +1,13 @@
 <?php
 
+require "db-config.php";
+
 function conexaoMysql()
 {
-    $db_name = getenv('DB_NAME');
-    $db_host = getenv('DB_HOST');
-    $db_username = getenv('DB_USERNAME');
-    $db_password = getenv('DB_PASSWORD');
+    $db_name = DB_NAME;
+    $db_host = DB_HOST;
+    $db_username = DB_USERNAME;
+    $db_password = DB_PASSWORD;
 
     $options = [
         PDO::ATTR_EMULATE_PREPARES => false,
