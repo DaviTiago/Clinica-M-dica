@@ -1,0 +1,52 @@
+CREATE TABLE pessoa (
+	codigo INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    sexo CHAR(1) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    telefone VARCHAR(20) UNIQUE,
+	cep CHAR(9) NOT NULL,
+	logradouro VARCHAR(50) NOT NULL,
+	cidade VARCHAR(30) NOT NULL,
+	estado VARCHAR(30) NOT NULL
+) ENGINE = InnoDB;
+
+CREATE TABLE paciente (
+	codigo INT PRIMARY KEY,
+	peso FLOAT NOT NULL,
+	altura FLOAT NOT NULL,
+	tipo_sanguineo VARCHAR(3),
+	FOREIGN KEY (codigo) REFERENCES pessoa(codigo) ON DELETE CASCADE 
+) ENGINE = InnoDB;
+
+CREATE TABLE funcionario (
+	codigo INT PRIMARY KEY,
+    data_contrato DATE NOT NULL,
+	salario DECIMAL NOT NULL,
+	senha_hash VARCHAR(256) NOT NULL,
+	FOREIGN KEY (codigo) REFERENCES pessoa(codigo) ON DELETE CASCADE
+) ENGINE = InnoDB;
+
+CREATE TABLE medico (
+	codigo INT PRIMARY KEY,
+	especialidade VARCHAR(20) NOT NULL,
+	crm CHAR(9) NOT NULL UNIQUE,
+	FOREIGN KEY (codigo) REFERENCES funcionario(codigo) ON DELETE CASCADE
+) ENGINE = InnoDB;
+
+CREATE TABLE agenda (
+	codigo INT AUTO_INCREMENT PRIMARY KEY,
+	codigo_medico INT NOT NULL UNIQUE,
+	data DATE NOT NULL,
+	horario TIME NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	sexo CHAR(1) NOT NULL,
+	email VARCHAR(100) NOT NULL UNIQUE,
+	FOREIGN KEY (codigo_medico) REFERENCES medico(codigo) ON DELETE CASCADE
+) ENGINE = InnoDB;
+
+CREATE TABLE base_enderecos (
+	cep CHAR(9) NOT NULL,
+	logradouro VARCHAR(50) NOT NULL,
+	cidade VARCHAR(30) NOT NULL,
+	estado VARCHAR(30) NOT NULL
+) ENGINE = InnoDB;
