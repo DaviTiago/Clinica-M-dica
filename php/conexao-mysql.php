@@ -2,10 +2,10 @@
 
 function conexaoMysql()
 {
-    $db_name = "if0_35771744_clinica";
-    $db_host = "sql205.infinityfree.com";
-    $db_username = "if0_35771744";
-    $db_password = "ya8RmGDhOzI3fa";
+    $db_name = getenv('DB_NAME');
+    $db_host = getenv('DB_HOST');
+    $db_username = getenv('DB_USERNAME');
+    $db_password = getenv('DB_PASSWORD');
 
     $options = [
         PDO::ATTR_EMULATE_PREPARES => false,
