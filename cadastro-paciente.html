@@ -57,7 +57,7 @@
 
     <main class="container">
         <h2>Cadastro de Pacientes</h2>
-        <form name="cadastro-funcionario" action="placeholder.php" method="post">
+        <form name="cadastro-funcionario" action="php/cadastro-paciente.php" method="post">
             <div class="form-group row">
                 <div class="col-md-7">
                     <label for="nome">Nome*</label>
@@ -66,12 +66,12 @@
                 <div id="campo-sexo" class="col-md-5">
                     <label>Sexo*</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sexo" id="masculino" value="masculino"
+                        <input class="form-check-input" type="radio" name="sexo" id="masculino" value="M"
                             checked required>
                         <label class="form-check-label" for="masculino">Masculino</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sexo" id="feminino" value="feminino">
+                        <input class="form-check-input" type="radio" name="sexo" id="feminino" value="F">
                         <label class="form-check-label" for="feminino">Feminino</label>
                     </div>
                 </div>
@@ -95,15 +95,15 @@
                 </div>
                 <div class="col-md-3">
                     <label for="logradouro">Logradouro*</label>
-                    <input type="text" name="logradouro" id="logradouro" class="form-control" required>
+                    <input type="text" name="logradouro" id="logradouro" class="form-control" required readonly>
                 </div>
                 <div class="col-md-3">
                     <label for="cidade">Cidade*</label>
-                    <input type="text" name="cidade" id="cidade" class="form-control" required>
+                    <input type="text" name="cidade" id="cidade" class="form-control" required readonly>
                 </div>
                 <div class="col-md-3">
                     <label for="estado">Estado*</label>
-                    <input type="text" name="estado" id="estado" class="form-control" required>
+                    <input type="text" name="estado" id="estado" class="form-control" required readonly>
                 </div>
             </div>
 
@@ -141,4 +141,5 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/header-restrito.js"></script>
+    <script src="js/busca-cep.js"></script>
 </body>
