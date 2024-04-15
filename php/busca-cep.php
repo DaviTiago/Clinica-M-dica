@@ -27,12 +27,9 @@ SQL;
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$cep]);
-$result = $stmt->fetchAll();
+$result = $stmt->fetch();
 
-$enderecos = [];
-foreach ($result as $row) {
-    $enderecos[] = new Endereco($row['logradouro'], $row['cidade'], $row['estado']);
-}
+$endereco = new Endereco($result['logradouro'], $result['cidade'], $result['estado']);
 
 header("Content-type: application/json; charset=utf-8");
-echo json_encode($enderecos);
+echo json_encode($endereco);

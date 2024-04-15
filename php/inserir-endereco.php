@@ -4,10 +4,10 @@ require "conexao-mysql.php";
 
 $pdo = conexaoMysql();
 
-$cep = htmlspecialchars($_POST["cep"]);
-$logradouro = htmlspecialchars($_POST["logradouro"]);
-$cidade = htmlspecialchars($_POST["cidade"]);
-$estado = htmlspecialchars($_POST["estado"]);
+$cep = htmlspecialchars($_POST["cep"]) ?? "";
+$logradouro = htmlspecialchars($_POST["logradouro"]) ?? "";
+$cidade = htmlspecialchars($_POST["cidade"]) ?? "";
+$estado = htmlspecialchars($_POST["estado"]) ?? "";
 
 $sql = <<<SQL
     INSERT INTO base_enderecos
