@@ -1,4 +1,5 @@
-async function agendar() {
+async function agendar(e) {
+    e.preventDefault();
     try {
         const form = document.querySelector("form#agendamento");
         const agendamento = new FormData(form);
@@ -12,6 +13,11 @@ async function agendar() {
             throw new Error(`Erro HTTP: ${response.status}`);
         }
 
+        const data = await response.json();
+        if (data.error) {
+            throw new Error(data.error);
+        }
+
         const selectMedicos = document.querySelector("select#medico");
         let child = selectMedicos.lastElementChild;
         while (child && child !== selectMedicos.firstElementChild) {
@@ -19,12 +25,13 @@ async function agendar() {
             child = selectMedicos.lastChild;
         }
         form.reset();
-    } catch (error) {
-        console.error('Ocorreu um erro ao tentar realizar o agendamento:', error);
+        alert('Agendamento realizado com sucesso!');
+    } catch (e) {
+        alert(e);
     }
 }
 
 window.addEventListener("load", () => {
     const button = document.querySelector("button");
-    button.addEventListener("click", () => agendar());
+    button.addEventListener("click", (e) => agendar(e));
 });

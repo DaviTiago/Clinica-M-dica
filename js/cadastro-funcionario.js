@@ -1,8 +1,9 @@
 const checkboxMedico = document.querySelector('#is-medico');
 const campoMedicos = document.querySelectorAll('.campo-medico');
-checkboxMedico.addEventListener('click', () => {
+
+function toggleCamposMedico(show) {
     campoMedicos.forEach((campo) => {
-        if (checkboxMedico.checked) {
+        if (show) {
             campo.classList.remove('hidden');
             campo.classList.add('shown');
             campo.required = true;
@@ -11,7 +12,11 @@ checkboxMedico.addEventListener('click', () => {
             campo.classList.add('hidden');
             campo.required = false;
         }
-    })
+    });
+}
+
+checkboxMedico.addEventListener('click', () => {
+    toggleCamposMedico(checkboxMedico.checked);
 });
 
 const form = document.querySelector("form");
@@ -28,13 +33,15 @@ form.addEventListener("submit", async (e) => {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
+        let data = await response.json();
+        if (data.error) {
+            throw new Error(data.error);
+        }
+
         form.reset();
-        campoMedicos.forEach((campo) => {
-            campo.classList.remove('shown');
-            campo.classList.add('hidden');
-            campo.required = false;
-        })
+        toggleCamposMedico(false);
+        alert('Cadastro realizado com sucesso!');
     } catch (e) {
-        console.error("Erro ao cadastrar funcionário: ", e);
+        alert(e);
     }
 });

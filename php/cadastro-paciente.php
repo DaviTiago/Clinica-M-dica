@@ -4,17 +4,17 @@ require "conexao-mysql.php";
 
 $pdo = conexaoMysql();
 
-$nome = htmlspecialchars($_POST["nome"]) ?? "";
-$sexo = htmlspecialchars($_POST["sexo"]) ?? "";
-$email = htmlspecialchars($_POST["email"]) ?? "";
-$telefone = !empty($_POST["telefone"]) ? htmlspecialchars($_POST["telefone"]) : NULL;
-$cep = htmlspecialchars($_POST["cep"]) ?? "";
-$logradouro = htmlspecialchars($_POST["logradouro"]) ?? "";
-$cidade = htmlspecialchars($_POST["cidade"]) ?? "";
-$estado = htmlspecialchars($_POST["estado"]) ?? "";
-$peso = htmlspecialchars($_POST["peso"]) ?? "";
-$altura = htmlspecialchars($_POST["altura"]) ?? "";
-$tipoSanguineo = htmlspecialchars($_POST["tipo-sanguineo"]) ?? "";
+$nome = htmlspecialchars($_POST["nome"]) ?? NULL;
+$sexo = htmlspecialchars($_POST["sexo"]) ?? NULL;
+$email = htmlspecialchars($_POST["email"]) ?? NULL;
+$telefone = htmlspecialchars($_POST["telefone"]) != "" ? htmlspecialchars($_POST["telefone"]) : NULL;
+$cep = htmlspecialchars($_POST["cep"]) ?? NULL;
+$logradouro = htmlspecialchars($_POST["logradouro"]) ?? NULL;
+$cidade = htmlspecialchars($_POST["cidade"]) ?? NULL;
+$estado = htmlspecialchars($_POST["estado"]) ?? NULL;
+$peso = htmlspecialchars($_POST["peso"]) ?? NULL;
+$altura = htmlspecialchars($_POST["altura"]) ?? NULL;
+$tipoSanguineo = htmlspecialchars($_POST["tipo-sanguineo"]) ?? NULL;
 
 try {
     $pdo->beginTransaction();
@@ -39,7 +39,16 @@ try {
 
     $pdo->commit();
     header("Location: https://ppi-matheus.infinityfreeapp.com/Clinica-Medica/cadastro-paciente.html");
+} catch (PDOException $e) {
+    $pdo->rollBack();
+    http_response_code(500);
+    header("Content-type: application/json; charset=utf-8");
+    echo json_encode(["erro" => "Ocorreu um erro ao tentar cadastrar o paciente."]);
+    exit();
 } catch (Exception $e) {
     $pdo->rollBack();
-    exit("Erro ao cadastrar paciente: " . $e->getMessage());
+    http_response_code(500);
+    header("Content-type: application/json; charset=utf-8");
+    echo json_encode(["erro" => "Ocorreu um erro inesperado."]);
+    exit();
 }

@@ -4,9 +4,9 @@ require "conexao-mysql.php";
 
 $pdo = conexaoMysql();
 
-$especialidade = htmlspecialchars($_GET["especialidade"]) ?? "";
-$nomeMedico = htmlspecialchars($_GET["medico"]) ?? "";
-$data = htmlspecialchars($_GET["data"]) ?? "";
+$especialidade = htmlspecialchars($_GET["especialidade"]) ?? NULL;
+$nomeMedico = htmlspecialchars($_GET["medico"]) ?? NULL;
+$data = htmlspecialchars($_GET["data"]) ?? NULL;
 
 $sql = <<<SQL
     SELECT a.horario
@@ -20,9 +20,15 @@ $sql = <<<SQL
     AND a.data = ?;
 SQL;
 
-$stmt = $pdo->prepare($sql);
-$stmt->execute([$especialidade, $nomeMedico, $data]);
-$horariosDisponiveis = $stmt->fetchAll();
-
-header("Content-type: application/json; charset=utf-8");
-echo json_encode($horariosDisponiveis);
+try {
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$especialidade, $nomeMedico, $data]);
+    $horariosDisponiveis = $stmt->fetchAll();
+    header("Content-type: application/json; charset=utf-8");
+    echo json_encode($horariosDisponiveis);
+} catch (PDOException $e) {
+    http_response_code(500);
+    header("Content-type: application/json; charset=utf-8");
+    echo json_encode(["erro" => "Ocorreu um erro ao tentar buscar os horários disponíveis."]);
+    exit();
+}
