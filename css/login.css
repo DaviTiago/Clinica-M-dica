@@ -90,6 +90,7 @@ span {
     color: red;
     display: block;
     margin-top: 5px;
+    text-align: center;
 }
 
 @media screen and (max-width: 767px) {

@@ -1,22 +1,21 @@
 async function sendForm(form) {
     // Limpa as mensagens de erro
-    document.getElementById("email-span").textContent = '';
-    document.getElementById("password-span").textContent = '';
-    document.getElementById("loginFailMsg").textContent = '';
+    document.getElementById("email-span").innerText = '';
+    document.getElementById("password-span").innerText = '';
+    document.getElementById("loginFailMsg").innerText = '';
 
     // Verifica se os campos de email e senha estão preenchidos
     if (!form.email.value && !form.senha.value) {
-        document.getElementById("email-span").textContent = 'Preencha o email.';
-        document.getElementById("password-span").textContent = 'Preencha a senha.';
-
+        document.getElementById("email-span").innerText = 'Preencha o email';
+        document.getElementById("password-span").innerText = 'Preencha a senha';
         return;
     }
     else if (!form.email.value) {
-        document.getElementById("email-span").textContent = 'Preencha o email.';
+        document.getElementById("email-span").innerText = 'Preencha o email';
         return;
     }
     else if (!form.senha.value) {
-        document.getElementById("password-span").textContent = 'Preencha a senha.';
+        document.getElementById("password-span").innerText = 'Preencha a senha';
         return;
     }
 
@@ -29,16 +28,9 @@ async function sendForm(form) {
         if (result.success) {
             window.location = result.detail;
         } else {
-            if (result.emailError) {
-                document.getElementById("email-span").textContent = result.emailError;
-            }
-            if (result.passwordError) {
-                document.getElementById("password-span").textContent = result.passwordError;
-            }
-            
-            document.getElementById("loginFailMsg").textContent = result.message;
+            document.getElementById("loginFailMsg").innerText = result.message;
             form.senha.value = "";
-            form.senha.focus();
+            form.email.focus();
         }
     } catch (e) {
         console.error('Erro:', e);
