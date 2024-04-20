@@ -40,7 +40,7 @@
         <div>
             <h2>Agendamento de Consulta</h2>
         </div>
-        <form action="placeholder.php" method="get" name="agendamento">
+        <form id="agendamento" name="agendamento">
             <fieldset>
                 <div class="row">
                     <div class="col">
@@ -52,11 +52,11 @@
                         <label>Sexo</label>
                         <div class="radio-option">
                             <label for="feminino">Feminino</label>
-                            <input type="radio" name="sexo" id="feminino" value="feminino">
+                            <input type="radio" name="sexo" id="feminino" value="F">
                         </div>
                         <div class="radio-option">
                             <label for="masculino">Masculino</label>
-                            <input type="radio" name="sexo" id="masculino" value="masculino">
+                            <input type="radio" name="sexo" id="masculino" value="M">
                         </div>
 
                     </div>
@@ -69,40 +69,9 @@
 
                 <div class="row">
                     <div class="col">
-                        <label for="data">Data*</label>
-                        <input type="date" name="data" id="data" required>
-                    </div>
-                    <div class="col">
-                        <label for="horario">Horário*</label>
-                        <select name="horario" id="horario" required>
-                            <option selected disabled value="">Selecione o Horário</option>
-                            <option value="8">8h</option>
-                            <option value="9">9h</option>
-                            <option value="10">10h</option>
-                            <option value="11">11h</option>
-                            <option value="12">12h</option>
-                            <option value="13">13h</option>
-                            <option value="14">14h</option>
-                            <option value="15">15h</option>
-                            <option value="16">16h</option>
-                            <option value="17">17h</option>
-                        </select>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col">
                         <label for="especialidade">Especialidade*</label>
                         <select name="especialidade" id="especialidade" required>
                             <option selected disabled value="">Selecione a Especialidade</option>
-                            <option value="0">Cardiologista</option>
-                            <option value="1">Dermatologista</option>
-                            <option value="2">Endocrinologista</option>
-                            <option value="3">Gastroenterologista</option>
-                            <option value="4">Ginecologista</option>
-                            <option value="5">Infectologista</option>
-                            <option value="6">Nefrologista</option>
                         </select>
                     </div>
 
@@ -110,14 +79,34 @@
                         <label for="medico">Médico*</label>
                         <select name="medico" id="medico" required>
                             <option selected disabled value="">Selecione o Médico</option>
-                            <option value="0">Dr. Fulano</option>
-                            <option value="1">Dr. Ciclano</option>
-                            <option value="2">Dr. Beltrano</option>
-
                         </select>
                     </div>
                 </div>
-                <button type="submit">Agendar</button>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="data">Data*</label>
+                        <input type="date" name="data" id="data" required>
+                    </div>
+                    <div class="col">
+                        <label for="horario">Horário*</label>
+                        <select name="horario" id="horario" required>
+                            <option selected disabled value="">Selecione o Horário</option>
+                            <option value="08:00:00">8h</option>
+                            <option value="09:00:00">9h</option>
+                            <option value="10:00:00">10h</option>
+                            <option value="11:00:00">11h</option>
+                            <option value="12:00:00">12h</option>
+                            <option value="13:00:00">13h</option>
+                            <option value="14:00:00">14h</option>
+                            <option value="15:00:00">15h</option>
+                            <option value="16:00:00">16h</option>
+                            <option value="17:00:00">17h</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="button">Agendar</button>
             </fieldset>
 
         </form>
@@ -126,6 +115,10 @@
         <a href="https://linktr.ee/Our_Linkedins">Linkedins</a>
     </footer>
 
+    <script src="js/select-especialidades.js"></script>
+    <script src="js/select-medicos.js"></script>
+    <script src="js/select-horarios.js"></script>
+    <script src="js/agendar.js"></script>
 </body>
 
 </html>
