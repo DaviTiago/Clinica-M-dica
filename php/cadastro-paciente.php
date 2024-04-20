@@ -1,6 +1,11 @@
 <?php
 
 require "conexao-mysql.php";
+require "sessionVerification.php";
+
+session_start();
+exitWhenNotMedico();
+
 
 $pdo = conexaoMysql();
 

@@ -37,9 +37,8 @@
     </header>
     <main class="container">
         <h2>Login</h2>
-        <form action="placeholder.php" method="get" name="login">
+        <form id="formLogin" method="post" name="login" >
             <fieldset>
-                <!-- Os campos de email podem ser preenchidos com qualquer coisa para entrar na parte restrita -->
                 <div>
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" placeholder="Email">
@@ -51,14 +50,15 @@
                     <span id="password-span"></span>
                 </div>
             </fieldset>
-            <!-- <button type="submit">Cadastrar</button> -->
-            <a href="cadastro-funcionario.html">Entrar</a>
+            <span id="loginFailMsg"></span>
+            <button type="submit" id="btnLogin">Entrar</button>
         </form>
     </main>
     <footer>
         <a href="https://linktr.ee/Our_Linkedins">Linkedins</a>
     </footer>
     <script src="js/login.js"></script>
+
 </body>
 
 </html>

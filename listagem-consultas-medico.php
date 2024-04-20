@@ -1,3 +1,13 @@
+<?php
+require "php/conexao-mysql.php";
+require "php/sessionVerification.php";
+
+session_start();
+exitWhenNotMedico();
+$pdo = conexaoMysql();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,7 +21,7 @@
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/header-footer-restrito.css">
     <link rel="stylesheet" href="css/listagem-geral.css">
-    <title>Listagem Pacientes</title>
+    <title>Listagem Consultas (Médico)</title>
 </head>
 
 <body>
@@ -24,28 +34,28 @@
         <nav>
             <ul>
                 <li>
-                    <a href="cadastro-funcionario.html">Cadastro de Funcionários</a>
+                    <a href="cadastro-funcionario.php">Cadastro de Funcionários</a>
                 </li>
                 <li>
-                    <a href="cadastro-paciente.html">Cadastro de Pacientes</a>
+                    <a href="cadastro-paciente.php">Cadastro de Pacientes</a>
                 </li>
                 <li>
-                    <a href="listagem-funcionarios.html">Listagem Funcionários</a>
+                    <a href="listagem-funcionarios.php">Listagem Funcionários</a>
                 </li>
                 <li>
-                    <a href="listagem-pacientes.html">Listagem Pacientes</a>
+                    <a href="listagem-pacientes.php">Listagem Pacientes</a>
                 </li>
                 <li>
-                    <a href="listagem-enderecos.html">Listagem Endereços</a>
+                    <a href="listagem-enderecos.php">Listagem Endereços</a>
                 </li>
                 <li>
-                    <a href="listagem-consultas.html">Listagem Agendamento de Consultas</a>
+                    <a href="listagem-consultas.php">Listagem Agendamento de Consultas</a>
                 </li>
                 <li>
-                    <a href="listagem-consultas-medico.html">Listagem Agendamento de Consultas (Médico)</a>
+                    <a href="listagem-consultas-medico.php">Listagem Agendamento de Consultas (Médico)</a>
                 </li>
                 <li>
-                    <a href="index.html">Voltar para área pública</a>
+                    <a href="php/logout.php">Voltar para área pública</a>
                 </li>
             </ul>
         </nav>
@@ -58,12 +68,11 @@
         <button class="btn btn-success">Mostrar dados</button>
         <div class="container">
             <section class="tabs">
-                <h2>Listagem Pacientes</h2>
+                <h2>Listagem Consultas (Médico)</h2>
                 <div class="row colorHeaderList">
-                    <div class="col">Nome</div>
-                    <div class="col">Sexo</div>
-                    <div class="col">Email</div>
-                    <div class="col">Telefone</div>
+                    <div class="col">Nome do Paciente</div>
+                    <div class="col">Data</div>
+                    <div class="col">Horário</div>
                 </div>
             </section>
         </div>

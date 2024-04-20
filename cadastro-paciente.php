@@ -1,3 +1,13 @@
+<?php
+require "php/conexao-mysql.php";
+require "php/sessionVerification.php";
+
+session_start();
+exitWhenNotLoggedIn();
+$pdo = conexaoMysql();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -10,7 +20,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/header-footer-restrito.css">
-    <link rel="stylesheet" href="css/cadastro-funcionario.css">
+    <link rel="stylesheet" href="css/cadastro-paciente.css">
     <title>Cadastro de Funcionários</title>
 </head>
 
@@ -24,28 +34,28 @@
         <nav>
             <ul>
                 <li>
-                    <a href="cadastro-funcionario.html">Cadastro de Funcionários</a>
+                    <a href="cadastro-funcionario.php">Cadastro de Funcionários</a>
                 </li>
                 <li>
-                    <a href="cadastro-paciente.html">Cadastro de Pacientes</a>
+                    <a href="cadastro-paciente.php">Cadastro de Pacientes</a>
                 </li>
                 <li>
-                    <a href="listagem-funcionarios.html">Listagem Funcionários</a>
+                    <a href="listagem-funcionarios.php">Listagem Funcionários</a>
                 </li>
                 <li>
-                    <a href="listagem-pacientes.html">Listagem Pacientes</a>
+                    <a href="listagem-pacientes.php">Listagem Pacientes</a>
                 </li>
                 <li>
-                    <a href="listagem-enderecos.html">Listagem Endereços</a>
+                    <a href="listagem-enderecos.php">Listagem Endereços</a>
                 </li>
                 <li>
-                    <a href="listagem-consultas.html">Listagem Agendamento de Consultas</a>
+                    <a href="listagem-consultas.php">Listagem Agendamento de Consultas</a>
                 </li>
                 <li>
-                    <a href="listagem-consultas-medico.html">Listagem Agendamento de Consultas (Médico)</a>
+                    <a href="listagem-consultas-medico.php">Listagem Agendamento de Consultas (Médico)</a>
                 </li>
                 <li>
-                    <a href="index.html">Voltar para área pública</a>
+                    <a href="php/logout.php">Voltar para área pública</a>
                 </li>
             </ul>
         </nav>
@@ -56,8 +66,8 @@
     </header>
 
     <main class="container">
-        <h2>Cadastro de Funcionários</h2>
-        <form name="cadastro-funcionario">
+        <h2>Cadastro de Pacientes</h2>
+        <form name="cadastro-funcionario" action="php/cadastro-paciente.php" method="post">
             <div class="form-group row">
                 <div class="col-md-7">
                     <label for="nome">Nome*</label>
@@ -84,7 +94,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="telefone">Telefone</label>
-                    <input type="tel" name="telefone" id="telefone" class="form-control" maxlength="20">
+                    <input type="tel" name="telefone" id="telefone" class="form-control">
                 </div>
             </div>
 
@@ -95,49 +105,40 @@
                 </div>
                 <div class="col-md-3">
                     <label for="logradouro">Logradouro*</label>
-                    <input type="text" name="logradouro" id="logradouro" class="form-control endereco" readonly required>
+                    <input type="text" name="logradouro" id="logradouro" class="form-control" required readonly>
                 </div>
                 <div class="col-md-3">
                     <label for="cidade">Cidade*</label>
-                    <input type="text" name="cidade" id="cidade" class="form-control endereco" readonly required>
+                    <input type="text" name="cidade" id="cidade" class="form-control" required readonly>
                 </div>
                 <div class="col-md-3">
                     <label for="estado">Estado*</label>
-                    <input type="text" name="estado" id="estado" class="form-control endereco" readonly required>
+                    <input type="text" name="estado" id="estado" class="form-control" required readonly>
                 </div>
             </div>
 
             <div class="form-group row">
-                <div class="col-md-8">
-                    <label for="data-inicio">Início do contrato*</label>
-                    <input type="date" name="data-inicio" id="data-inicio" class="form-control" required>
-                </div>
-
                 <div class="col-md-4">
-                    <label for="salario">Salário*</label>
-                    <input type="number" name="salario" placeholder="R$" id="salario" class="form-control"
-                        required>
+                    <label for="peso">Peso*</label>
+                    <input type="number" name="peso" id="peso" class="form-control" required>
                 </div>
-            </div>
-
-            <div class="form-group col-md-12">
-                <label for="senha">Senha*</label>
-                <input type="password" name="senha" id="senha" class="form-control" required minlength="8">
-            </div>
-
-            <div id="checkbox-medico" class="form-check">
-                <label for="is-medico" class="form-check-label">Você é um médico?</label>
-                <input type="checkbox" name="is-medico" id="is-medico" class="form-check-input">
-            </div>
-
-            <div class="form-group row">
-                <div class="col-md-6 campo-medico">
-                    <label for="especialidade">Especialidade*</label>
-                    <input type="text" name="especialidade" id="especialidade" class="form-control">
+                <div class="col-md-4">
+                    <label for="altura">Altura*</label>
+                    <input type="number" name="altura" id="altura" class="form-control" required>
                 </div>
-                <div class="col-md-6 campo-medico">
-                    <label for="crm">CRM*</label>
-                    <input type="text" name="crm" id="crm" class="form-control">
+                <div class="col-md-4">
+                    <label for="select-sanguineo">Tipo Sanguíneo*</label>
+                    <select name="tipo-sanguineo" id="select-sanguineo" class="form-select" required>
+                        <option value="" selected disabled>Selecione...</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
                 </div>
             </div>
 
@@ -149,7 +150,6 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="js/header-restrito.js   "></script>
-    <script src="js/cadastro-funcionario.js"></script>
+    <script src="js/header-restrito.js"></script>
     <script src="js/busca-cep.js"></script>
 </body>
