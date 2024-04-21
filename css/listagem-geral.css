@@ -19,10 +19,10 @@ h2 {
     text-align: center;
 }
 
-section.tabs {
+div.tabela.tabs {
     display: none;
 }
 
-section.tabActive {
+div.tabela.tabActive {
     display: block;
 }

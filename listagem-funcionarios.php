@@ -15,10 +15,8 @@ $pdo = conexaoMysql();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/header-footer-restrito.css">
     <link rel="stylesheet" href="css/listagem-geral.css">
@@ -66,18 +64,11 @@ $pdo = conexaoMysql();
         <div><img src="images/logo.png" alt="Logo Clínica Pax Anima"></div>
     </header>
     <main>
-        <button class="btn btn-success">Mostrar dados</button>
+        <button id="mostrarDados" class="btn btn-success">Mostrar dados</button>
+        <h2>Listagem Funcionarios</h2>
         <div class="container">
-            <section class="tabs">
-                <h2>Listagem Funcionarios</h2>
-                <div class="row colorHeaderList">
-                    <div class="col">Nome</div>
-                    <div class="col">Sexo</div>
-                    <div class="col">Email</div>
-                    <div class="col">Telefone</div>
-                    <div class="col">Medico</div>
-                </div>
-            </section>
+            <div id="listaFuncionarios" class="tabs tabela">
+            </div>
         </div>
     </main>
 
@@ -87,6 +78,7 @@ $pdo = conexaoMysql();
 
     <script src="js/header-restrito.js"></script>
     <script src="js/listagem-geral.js"></script>
+    <script src="js/listagem-funcionarios.js"></script>
 </body>
 
 </html>

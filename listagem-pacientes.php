@@ -15,10 +15,8 @@ $pdo = conexaoMysql();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/header-footer-restrito.css">
     <link rel="stylesheet" href="css/listagem-geral.css">
@@ -67,11 +65,11 @@ $pdo = conexaoMysql();
     </header>
     <main>
         <button id="mostrarDados" class="btn btn-success">Mostrar dados</button>
-        
-        <section id="listaPaciente" class="tabs">
-            <h2>Listagem Pacientes</h2>
-        </section>
-        
+        <h2>Listagem Pacientes</h2>
+        <div class="container">
+            <div id="listaPaciente" class="tabs tabela">
+            </div>
+        </div>
     </main>
 
     <footer>

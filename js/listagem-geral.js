@@ -1,19 +1,14 @@
-const buttons = document.querySelectorAll("button");
+const button = document.querySelector("button");
 
-buttons.forEach(function (button) {
-    button.addEventListener('click', function () {
-        const sections = document.querySelectorAll("section");
-
-        sections.forEach(function (section) {
-            if (section.classList.contains("tabs")) {
-                section.classList.remove("tabs");
-                section.classList.add("tabActive");
-                button.textContent = "Ocultar dados";
-            } else {
-                section.classList.remove("tabActive");
-                section.classList.add("tabs");
-                button.textContent = "Mostrar dados";
-            }
-        });
-    });
-});
+button.addEventListener('click', function () {
+    const div = document.querySelector("div.tabela");
+    if (div.classList.contains("tabs")) {
+        div.classList.remove("tabs");
+        div.classList.add("tabActive");
+        button.textContent = "Ocultar dados";
+    } else {
+        div.classList.remove("tabActive");
+        div.classList.add("tabs");
+        button.textContent = "Mostrar dados";
+    }
+})

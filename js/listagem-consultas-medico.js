@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Adiciona o evento de clique ao botão "Mostrar dados"
     document.getElementById('mostrarDados').addEventListener('click', function () {
         // Seleciona a seção onde os dados das consultas serão inseridos
-        const section = document.getElementById('listaConsultas');
+        const div = document.getElementById('listaConsultas');
 
         // Faz a requisição usando a API Fetch
-        fetch('php/listagem-consultas-medico.php')
+        fetch('php/listagens-consultas-medico.php')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Erro ao carregar as consultas.');
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Cria o cabeçalho da tabela
                 const thead = document.createElement('thead');
                 const headerRow = document.createElement('tr');
-                ['Data', 'Hórario', 'Codigo'].forEach(colName => {
+                ['Nome', 'Data', 'Hórario'].forEach(colName => {
                     const headerCell = document.createElement('th');
                     headerCell.textContent = colName;
                     headerRow.appendChild(headerCell);
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const tbody = document.createElement('tbody');
                 data.forEach(consultasMedico => {
                     const row = document.createElement('tr');
-                    ['data', 'horario', 'codigo'].forEach(prop => {
+                    ['nome', 'data', 'horario'].forEach(prop => {
                         const cell = document.createElement('td');
                         cell.textContent = consultasMedico[prop];
                         row.appendChild(cell);
@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 table.appendChild(tbody);
 
                 // Limpa o conteúdo da seção e insere a tabela
-                section.innerText = '';
-                section.appendChild(table);
+                div.innerText = '';
+                div.appendChild(table);
             })
             .catch(error => {
                 console.error('Erro ao carregar as consultas2', error);

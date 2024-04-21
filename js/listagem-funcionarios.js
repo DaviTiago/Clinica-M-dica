@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Adiciona o evento de clique ao botão "Mostrar dados"
     document.getElementById('mostrarDados').addEventListener('click', function () {
         // Seleciona a seção onde os dados dos funcionários serão inseridos
-        const section = document.getElementById('listaFuncionarios');
+        const div = document.getElementById('listaFuncionarios');
 
         // Faz a requisição usando a API Fetch
         fetch('php/listagem-funcionarios.php')
@@ -44,8 +44,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 table.appendChild(tbody);
 
                 // Limpa o conteúdo da seção e insere a tabela
-                section.innerText = '';
-                section.appendChild(table);
+                div.innerText = '';
+                div.appendChild(table);
             })
             .catch(error => {
                 console.error('Erro ao carregar os dados dos funcionários:', error);

@@ -1,16 +1,24 @@
 <?php
 require "conexao-mysql.php";
+session_start();
+
 $pdo = conexaoMysql();
 
-try {
+$email = htmlspecialchars($_SESSION['user']);
 
+try {
     $sql = <<<SQL
-    SELECT a.data, a.horario, m.codigo
-    FROM agenda a INNER JOIN medico m 
+    SELECT a.nome, a.data, a.horario
+    FROM agenda a
+    INNER JOIN medico m
     ON a.codigo_medico = m.codigo
+    INNER JOIN pessoa p
+    ON m.codigo = p.codigo
+    WHERE p.email = ?
     SQL;
 
-    $stmt = $pdo->query($sql);
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$email]);
     $listagem = $stmt->fetchAll();
 } catch (Exception $e) {
     exit('Ocorreu uma falha: ' . $e->getMessage());
