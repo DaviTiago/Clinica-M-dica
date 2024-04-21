@@ -3,7 +3,7 @@
 function exitWhenNotLoggedIn()
 { 
   if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
-    header("Location: clinica-medica.infinityfreeapp.com/index.html");
+    header("Location: http://www.clinica-medica.infinityfreeapp.com/index.html");
     exit();  
   }
 }
@@ -11,12 +11,12 @@ function exitWhenNotLoggedIn()
 function exitWhenNotMedico()
 {
   if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
-    header("Location: clinica-medica.infinityfreeapp.com/index.html");
+    header("Location: http://www.clinica-medica.infinityfreeapp.com/index.html");
     exit();
   }
 
   if (!isset($_SESSION['isMedico']) || $_SESSION['isMedico'] !== true) {
-    header("Location: clinica-medica.infinityfreeapp.com/cadastro-funcionario.php");
+    header("Location: http://www.clinica-medica.infinityfreeapp.com/cadastro-funcionario.php");
     exit();
   }
 }

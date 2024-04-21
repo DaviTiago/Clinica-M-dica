@@ -63,7 +63,7 @@ $pdo = conexaoMysql();
         <div><img src="images/logo.png" alt="Logo Clínica Pax Anima"></div>
     </header>
     <main>
-        <button id="mostrarDados" class="btn btn-success">Mostrar dados</button>
+        <button type="button" id="mostrarDados" class="btn btn-success">Mostrar dados</button>
         <h2>Lista Consultas (Médico)</h2>
         <div class="container">
             <div id="listaConsultas" class="tabs tabela">

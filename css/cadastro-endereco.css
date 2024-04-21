@@ -74,7 +74,6 @@ footer {
     text-align: center;
 }
 
-/* Estilização do link enquanto ainda não há validação de formulários para fazer com button */
 main.container a {
     color: white;
     background-color: var(--cor-primaria);

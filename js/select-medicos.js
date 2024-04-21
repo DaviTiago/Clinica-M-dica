@@ -22,6 +22,8 @@ async function selecionaMedicos(especialidade) {
             option.text = "Dr. " + medicos[i]["nome"];
             selectMedicos.appendChild(option);
         }
+
+        selectMedicos.selectedIndex = 0;
     } catch (e) {
         alert(e);
     }

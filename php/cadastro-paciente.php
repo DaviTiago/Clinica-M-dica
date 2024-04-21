@@ -6,7 +6,6 @@ require "sessionVerification.php";
 session_start();
 exitWhenNotMedico();
 
-
 $pdo = conexaoMysql();
 
 $nome = htmlspecialchars($_POST["nome"]) ?? NULL;
@@ -43,7 +42,7 @@ try {
     $stmt2->execute([$codigoPessoa, $peso, $altura, $tipoSanguineo]);
 
     $pdo->commit();
-    header("Location: https://ppi-matheus.infinityfreeapp.com/Clinica-Medica/cadastro-paciente.html");
+    header("Location: http://clinica-medica.infinityfreeapp.com/cadastro-paciente.php");
 } catch (PDOException $e) {
     $pdo->rollBack();
     http_response_code(500);

@@ -17,7 +17,7 @@ SQL;
 try {
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$cep, $logradouro, $cidade, $estado]);
-    header("Location: https://ppi-matheus.infinityfreeapp.com/Clinica-Medica/cadastro-endereco.html");
+    header("Location: http://clinica-medica.infinityfreeapp.com/cadastro-endereco.html");
 } catch (PDOException $e) {
     http_response_code(500);
     header("Content-type: application/json; charset=utf-8");
