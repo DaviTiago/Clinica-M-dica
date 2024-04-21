@@ -34,33 +34,25 @@ function checkUserCredentials($pdo, $email, $senha)
 
         if ($user) {
             if (password_verify($senha, $user['senha_hash'])) {
-                // Verifica se o funcionário é médico
                 if ($user['codigoMedico']) {
-                    // O funcionário é médico, então redireciona para a página de cadastro de paciente
                     return new RequestResponse(true, "listagem-consultas-medico.php", "");
                 } else {
-                    // O funcionário não é médico, então redireciona para a página de cadastro de funcionário
                     return new RequestResponse(true, "cadastro-funcionario.php", "");
                 }
             } else {
-                // Senha incorreta
                 return new RequestResponse(false, "", "Senha incorreta");
             }
         } else {
-            // Email não encontrado
             return new RequestResponse(false, "", "Email não encontrado");
         }
     } catch (PDOException $e) {
-        // Erro de conexão ou consulta
         return new RequestResponse(false, "", "Erro de conexão ou consulta ao banco de dados");
     }
 }
 
-// Captura os dados do formulário
-$email = $_POST["email"] ?? '';
-$senha = $_POST["senha"] ?? '';
+$email = htmlspecialchars($_POST["email"]) ?? '';
+$senha = htmlspecialchars($_POST["senha"]) ?? '';
 
-// Conexão com o banco de dados
 $pdo = conexaoMysql();
 
 $response = checkUserCredentials($pdo, $email, $senha);
@@ -79,5 +71,4 @@ if ($response->success) {
     session_destroy();
 }
 
-// Retorna a resposta em JSON
 echo json_encode($response);
