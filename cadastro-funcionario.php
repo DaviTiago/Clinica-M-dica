@@ -1,3 +1,13 @@
+<?php
+require "php/conexao-mysql.php";
+require "php/sessionVerification.php";
+
+session_start();
+exitWhenNotLoggedIn();
+$pdo = conexaoMysql();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -24,28 +34,28 @@
         <nav>
             <ul>
                 <li>
-                    <a href="cadastro-funcionario.html">Cadastro de Funcionários</a>
+                    <a href="cadastro-funcionario.php">Cadastro de Funcionários</a>
                 </li>
                 <li>
-                    <a href="cadastro-paciente.html">Cadastro de Pacientes</a>
+                    <a href="cadastro-paciente.php">Cadastro de Pacientes</a>
                 </li>
                 <li>
-                    <a href="listagem-funcionarios.html">Listagem Funcionários</a>
+                    <a href="listagem-funcionarios.php">Listagem Funcionários</a>
                 </li>
                 <li>
-                    <a href="listagem-pacientes.html">Listagem Pacientes</a>
+                    <a href="listagem-pacientes.php">Listagem Pacientes</a>
                 </li>
                 <li>
-                    <a href="listagem-enderecos.html">Listagem Endereços</a>
+                    <a href="listagem-enderecos.php">Listagem Endereços</a>
                 </li>
                 <li>
-                    <a href="listagem-consultas.html">Listagem Agendamento de Consultas</a>
+                    <a href="listagem-consultas.php">Listagem Agendamento de Consultas</a>
                 </li>
                 <li>
-                    <a href="listagem-consultas-medico.html">Listagem Agendamento de Consultas (Médico)</a>
+                    <a href="listagem-consultas-medico.php">Listagem Agendamento de Consultas (Médico)</a>
                 </li>
                 <li>
-                    <a href="index.html">Voltar para área pública</a>
+                    <a href="php/logout.php">Voltar para área pública (Logout)</a>
                 </li>
             </ul>
         </nav>

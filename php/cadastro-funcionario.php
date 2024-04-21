@@ -1,22 +1,25 @@
 <?php
 
 require "conexao-mysql.php";
+require "sessionVerification.php";
+session_start();
+exitWhenNotLoggedIn();
 
 $pdo = conexaoMysql();
 
-$nome = htmlspecialchars($_POST["nome"]) ?? "";
-$sexo = htmlspecialchars($_POST["sexo"]) ?? "";
-$email = htmlspecialchars($_POST["email"]) ?? "";
-$telefone = !empty($_POST["telefone"]) ? htmlspecialchars($_POST["telefone"]) : NULL;
-$cep = htmlspecialchars($_POST["cep"]) ?? "";
-$logradouro = htmlspecialchars($_POST["logradouro"]) ?? "";
-$cidade = htmlspecialchars($_POST["cidade"]) ?? "";
-$estado = htmlspecialchars($_POST["estado"]) ?? "";
-$inicioContrato = htmlspecialchars($_POST["data-inicio"]) ?? "";
-$salario = htmlspecialchars($_POST["salario"]) ?? "";
-$senhaHash = password_hash(htmlspecialchars($_POST["senha"]), PASSWORD_DEFAULT) ?? "";
-$especialidade = htmlspecialchars($_POST["especialidade"]) ?? "";
-$crm = htmlspecialchars($_POST["crm"]) ?? "";
+$nome = htmlspecialchars($_POST["nome"]) ?? NULL;
+$sexo = htmlspecialchars($_POST["sexo"]) ?? NULL;
+$email = htmlspecialchars($_POST["email"]) ?? NULL;
+$telefone = htmlspecialchars($_POST["telefone"]) != "" ? htmlspecialchars($_POST["telefone"]) : NULL;
+$cep = htmlspecialchars($_POST["cep"]) ?? NULL;
+$logradouro = htmlspecialchars($_POST["logradouro"]) ?? NULL;
+$cidade = htmlspecialchars($_POST["cidade"]) ?? NULL;
+$estado = htmlspecialchars($_POST["estado"]) ?? NULL;
+$inicioContrato = htmlspecialchars($_POST["data-inicio"]) ?? NULL;
+$salario = htmlspecialchars($_POST["salario"]) ?? NULL;
+$senhaHash = password_hash(htmlspecialchars($_POST["senha"]), PASSWORD_DEFAULT) ?? NULL;
+$especialidade = htmlspecialchars($_POST["especialidade"]) ?? NULL;
+$crm = htmlspecialchars($_POST["crm"]) ?? NULL;
 
 try {
     $pdo->beginTransaction();
@@ -39,7 +42,7 @@ try {
     $stmt2 = $pdo->prepare($sql2);
     $stmt2->execute([$codigoPessoa, $inicioContrato, $salario, $senhaHash]);
 
-    if(!empty($especialidade) && !empty($crm)) {
+    if (!empty($especialidade) && !empty($crm)) {
         $sql3 = <<<SQL
             INSERT INTO medico (codigo, especialidade, crm)
             VALUES (?, ?, ?);
@@ -50,7 +53,18 @@ try {
     }
 
     $pdo->commit();
+    header("Content-type: application/json; charset=utf-8");
+    echo json_encode(["sucesso" => "Funcionário cadastrado com sucesso."]);
+} catch (PDOException $e) {
+    $pdo->rollBack();
+    http_response_code(500);
+    header("Content-type: application/json; charset=utf-8");
+    echo json_encode(["erro" => "Ocorreu um erro ao tentar cadastrar o funcionário." . $e->getMessage()]);
+    exit();
 } catch (Exception $e) {
     $pdo->rollBack();
-    exit("Erro ao cadastrar funcionário: " . $e->getMessage());
+    http_response_code(500);
+    header("Content-type: application/json; charset=utf-8");
+    echo json_encode(["erro" => "Ocorreu um erro inesperado."]);
+    exit();
 }

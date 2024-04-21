@@ -29,7 +29,12 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute([$cep]);
 $result = $stmt->fetch();
 
-$endereco = new Endereco($result['logradouro'], $result['cidade'], $result['estado']);
-
 header("Content-type: application/json; charset=utf-8");
-echo json_encode($endereco);
+
+if ($result === false) {
+    http_response_code(500);
+    echo json_encode(["erro" => "CEP não encontrado"]);
+} else {
+    $endereco = new Endereco($result['logradouro'], $result['cidade'], $result['estado']);
+    echo json_encode($endereco);
+}

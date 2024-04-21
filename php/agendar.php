@@ -4,13 +4,13 @@ require "conexao-mysql.php";
 
 $pdo = conexaoMysql();
 
-$nome = htmlspecialchars($_POST["nome"]) ?? "";
-$sexo = htmlspecialchars($_POST["sexo"]) ?? "";
-$email = htmlspecialchars($_POST["email"]);
-$especialidade = htmlspecialchars($_POST["especialidade"]);
-$nomeMedico = htmlspecialchars($_POST["medico"]);
-$data = htmlspecialchars($_POST["data"]) ?? "";
-$horario = htmlspecialchars($_POST["horario"]) ?? "";
+$nome = htmlspecialchars($_POST["nome"]) ?? NULL;
+$sexo = htmlspecialchars($_POST["sexo"]) ?? NULL;
+$email = htmlspecialchars($_POST["email"]) ?? NULL;
+$especialidade = htmlspecialchars($_POST["especialidade"]) ?? NULL; 
+$nomeMedico = htmlspecialchars($_POST["medico"]) ?? NULL;
+$data = htmlspecialchars($_POST["data"]) ?? NULL;
+$horario = htmlspecialchars($_POST["horario"]) ?? NULL;
 
 try {
     $pdo->beginTransaction();
@@ -27,6 +27,11 @@ try {
     $stmt1 = $pdo->prepare($sql1);
     $stmt1->execute([$especialidade, $nomeMedico]);
     $result = $stmt1->fetch();
+
+    if ($result === false) {
+        throw new Exception("Médico não encontrado");
+    }
+
     $codigoMedico = $result['codigo'];
 
     $sql2 = <<<SQL
@@ -37,10 +42,24 @@ try {
     $stmt2 = $pdo->prepare($sql2);
     $stmt2->execute([$codigoMedico, $data, $horario, $nome, $sexo, $email]);
 
+    if ($stmt2->rowCount() === 0) {
+        throw new Exception("Falha ao inserir na agenda");
+    }
+
     $pdo->commit();
 
-    header("Location: https://ppi-matheus.infinityfreeapp.com/Clinica-Medica/agendamento.html");
+    header("Content-type: application/json; charset=utf-8");
+    echo json_encode(["sucesso" => "Funcionário cadastrado com sucesso."]);
+} catch (PDOException $e) {
+    $pdo->rollBack();
+    http_response_code(500);
+    header("Content-type: application/json; charset=utf-8");
+    echo json_encode(["erro" => "Ocorreu um erro ao tentar cadastrar o paciente."]);
+    exit();
 } catch (Exception $e) {
     $pdo->rollBack();
-    exit("Ocorreu um erro ao tentar realizar o agendamento: " . $e->getMessage());
+    http_response_code(500);
+    header("Content-type: application/json; charset=utf-8");
+    echo json_encode(["erro" => "Ocorreu um erro inesperado."]);
+    exit();
 }

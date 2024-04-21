@@ -1,4 +1,14 @@
-<!--ARQUIVO MODIFICADO, SUBIR NO IF-->
+<?php
+require "php/conexao-mysql.php";
+require "php/sessionVerification.php";
+
+session_start();
+exitWhenNotLoggedIn();
+
+$pdo = conexaoMysql();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -25,28 +35,28 @@
         <nav>
             <ul>
                 <li>
-                    <a href="cadastro-funcionario.html">Cadastro de Funcionários</a>
+                    <a href="cadastro-funcionario.php">Cadastro de Funcionários</a>
                 </li>
                 <li>
-                    <a href="cadastro-paciente.html">Cadastro de Pacientes</a>
+                    <a href="cadastro-paciente.php">Cadastro de Pacientes</a>
                 </li>
                 <li>
-                    <a href="listagem-funcionarios.html">Listagem Funcionários</a>
+                    <a href="listagem-funcionarios.php">Listagem Funcionários</a>
                 </li>
                 <li>
-                    <a href="listagem-pacientes.html">Listagem Pacientes</a>
+                    <a href="listagem-pacientes.php">Listagem Pacientes</a>
                 </li>
                 <li>
-                    <a href="listagem-enderecos.html">Listagem Endereços</a>
+                    <a href="listagem-enderecos.php">Listagem Endereços</a>
                 </li>
                 <li>
-                    <a href="listagem-consultas.html">Listagem Agendamento de Consultas</a>
+                    <a href="listagem-consultas.php">Listagem Agendamento de Consultas</a>
                 </li>
                 <li>
-                    <a href="listagem-consultas-medico.html">Listagem Agendamento de Consultas (Médico)</a>
+                    <a href="listagem-consultas-medico.php">Listagem Agendamento de Consultas (Médico)</a>
                 </li>
                 <li>
-                    <a href="index.html">Voltar para área pública</a>
+                    <a href="php/logout.php">Voltar para área pública (Logout)</a>
                 </li>
             </ul>
         </nav>
@@ -56,10 +66,17 @@
         <div><img src="images/logo.png" alt="Logo Clínica Pax Anima"></div>
     </header>
     <main>
-        <button id="mostrarDados" class="btn btn-success">Mostrar dados</button>
+        <button class="btn btn-success">Mostrar dados</button>
         <div class="container">
-            <section id="listaFuncionarios" class="tabs">
+            <section class="tabs">
                 <h2>Listagem Funcionarios</h2>
+                <div class="row colorHeaderList">
+                    <div class="col">Nome</div>
+                    <div class="col">Sexo</div>
+                    <div class="col">Email</div>
+                    <div class="col">Telefone</div>
+                    <div class="col">Medico</div>
+                </div>
             </section>
         </div>
     </main>
@@ -70,7 +87,6 @@
 
     <script src="js/header-restrito.js"></script>
     <script src="js/listagem-geral.js"></script>
-    <script src="js/listagem-funcionarios.js"></script>
 </body>
 
 </html>

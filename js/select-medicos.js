@@ -1,19 +1,29 @@
 async function selecionaMedicos(especialidade) {
-    const response = await fetch(`php/select-medicos.php?especialidade=${especialidade}`);
-    const medicos = await response.json();
-    const selectMedicos = document.querySelector("select#medico");
+    try {
+        const response = await fetch(`php/select-medicos.php?especialidade=${especialidade}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const medicos = await response.json();
+        if (medicos.error) {
+            throw new Error(medicos.error);
+        }
+        const selectMedicos = document.querySelector("select#medico");
 
-    let child = selectMedicos.lastElementChild;
-    while (child && child !== selectMedicos.firstElementChild) {
-        selectMedicos.removeChild(child);
-        child = selectMedicos.lastChild;
-    }
+        let child = selectMedicos.lastElementChild;
+        while (child && child !== selectMedicos.firstElementChild) {
+            selectMedicos.removeChild(child);
+            child = selectMedicos.lastChild;
+        }
 
-    for(let i = 0; i < medicos.length; i++) {
-        const option = document.createElement("option");
-        option.value = medicos[i]["nome"];
-        option.text = "Dr. " + medicos[i]["nome"];
-        selectMedicos.appendChild(option);
+        for (let i = 0; i < medicos.length; i++) {
+            const option = document.createElement("option");
+            option.value = medicos[i]["nome"];
+            option.text = "Dr. " + medicos[i]["nome"];
+            selectMedicos.appendChild(option);
+        }
+    } catch (e) {
+        alert(e);
     }
 };
 
