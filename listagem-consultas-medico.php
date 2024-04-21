@@ -65,9 +65,11 @@ $pdo = conexaoMysql();
         <div><img src="images/logo.png" alt="Logo Clínica Pax Anima"></div>
     </header>
     <main>
-        <label for="crm">CRM:</label>
-        <input type="text" id="crm" name="crm" required>
-        <button class="btn btn-success" type="submit">Buscar Consultas</button>
+        <button id="mostrarDados" class="btn btn-success">Buscar Consultas</button>
+        <section id="listaConsultas" class="tabs">
+            <h2>Lista Consultas Medico</h2>
+        </section>
+    </section>
     </main>
 
     <footer>
@@ -76,6 +78,7 @@ $pdo = conexaoMysql();
 
     <script src="js/listagem-geral.js"></script>
     <script src="js/header-restrito.js"></script>
+    <script src="js/listagem-consultas-medico.js"></script>
 </body>
 
 </html>

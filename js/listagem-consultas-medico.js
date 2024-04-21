@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const section = document.getElementById('listaConsultas');
 
         // Faz a requisição usando a API Fetch
-        fetch('php/listagem-consultas.php')
+        fetch('php/listagem-consultas-medico.php')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Erro ao carregar as consultas.');
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Cria o cabeçalho da tabela
                 const thead = document.createElement('thead');
                 const headerRow = document.createElement('tr');
-                ['Especialidade Médica', 'CRM', 'Nome Médico', 'Data', 'Hórario'].forEach(colName => {
+                ['Data', 'Hórario', 'Codigo'].forEach(colName => {
                     const headerCell = document.createElement('th');
                     headerCell.textContent = colName;
                     headerRow.appendChild(headerCell);
@@ -30,11 +30,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Preenche os dados da tabela
                 const tbody = document.createElement('tbody');
-                data.forEach(consultas => {
+                data.forEach(consultasMedico => {
                     const row = document.createElement('tr');
-                    ['especialidade', 'crm', 'nome', 'data', 'horario'].forEach(prop => {
+                    ['data', 'horario', 'codigo'].forEach(prop => {
                         const cell = document.createElement('td');
-                        cell.textContent = consultas[prop];
+                        cell.textContent = consultasMedico[prop];
                         row.appendChild(cell);
                     });
                     tbody.appendChild(row);
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 section.appendChild(table);
             })
             .catch(error => {
-                console.error('Erro ao carregar as consultas', error);
+                console.error('Erro ao carregar as consultas2', error);
             });
     });
 });

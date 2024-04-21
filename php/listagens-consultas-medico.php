@@ -1,15 +1,13 @@
 <?php
-
 require "conexao-mysql.php";
 $pdo = conexaoMysql();
 
 try {
 
     $sql = <<<SQL
-    SELECT m.especialidade, m.crm, p.nome, a.data, a.horario
-    FROM medico m INNER JOIN pessoa p ON m.codigo = p.codigo 
-    INNER JOIN agenda a ON m.codigo = a.codigo_medico
-    ORDER BY a.horario
+    SELECT a.data, a.horario, m.codigo
+    FROM agenda a INNER JOIN medico m 
+    ON a.codigo_medico = m.codigo
     SQL;
 
     $stmt = $pdo->query($sql);
