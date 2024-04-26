@@ -8,17 +8,17 @@ exitWhenNotMedico();
 
 $pdo = conexaoMysql();
 
-$nome = htmlspecialchars($_POST["nome"]) ?? NULL;
-$sexo = htmlspecialchars($_POST["sexo"]) ?? NULL;
-$email = htmlspecialchars($_POST["email"]) ?? NULL;
-$telefone = htmlspecialchars($_POST["telefone"]) != "" ? htmlspecialchars($_POST["telefone"]) : NULL;
-$cep = htmlspecialchars($_POST["cep"]) ?? NULL;
-$logradouro = htmlspecialchars($_POST["logradouro"]) ?? NULL;
-$cidade = htmlspecialchars($_POST["cidade"]) ?? NULL;
-$estado = htmlspecialchars($_POST["estado"]) ?? NULL;
-$peso = htmlspecialchars($_POST["peso"]) ?? NULL;
-$altura = htmlspecialchars($_POST["altura"]) ?? NULL;
-$tipoSanguineo = htmlspecialchars($_POST["tipo-sanguineo"]) ?? NULL;
+$nome = $_POST["nome"] ?? NULL;
+$sexo = $_POST["sexo"] ?? NULL;
+$email = $_POST["email"] ?? NULL;
+$telefone = $_POST["telefone"] != "" ? $_POST["telefone"] : NULL;
+$cep = $_POST["cep"] ?? NULL;
+$logradouro = $_POST["logradouro"] ?? NULL;
+$cidade = $_POST["cidade"] ?? NULL;
+$estado = $_POST["estado"] ?? NULL;
+$peso = $_POST["peso"] ?? NULL;
+$altura = $_POST["altura"] ?? NULL;
+$tipoSanguineo = $_POST["tipo-sanguineo"] ?? NULL;
 
 try {
     $pdo->beginTransaction();

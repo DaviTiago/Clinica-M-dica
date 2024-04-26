@@ -4,9 +4,9 @@ require "conexao-mysql.php";
 
 $pdo = conexaoMysql();
 
-$especialidade = htmlspecialchars($_GET["especialidade"]) ?? NULL;
-$nomeMedico = htmlspecialchars($_GET["medico"]) ?? NULL;
-$data = htmlspecialchars($_GET["data"]) ?? NULL;
+$especialidade = $_GET["especialidade"] ?? NULL;
+$nomeMedico = $_GET["medico"] ?? NULL;
+$data = $_GET["data"] ?? NULL;
 
 $sql = <<<SQL
     SELECT a.horario

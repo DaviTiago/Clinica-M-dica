@@ -4,7 +4,7 @@ session_start();
 
 $pdo = conexaoMysql();
 
-$email = htmlspecialchars($_SESSION['user']);
+$email = $_SESSION['user'];
 
 try {
     $sql = <<<SQL

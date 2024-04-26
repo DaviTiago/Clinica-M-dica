@@ -4,13 +4,13 @@ require "conexao-mysql.php";
 
 $pdo = conexaoMysql();
 
-$nome = htmlspecialchars($_POST["nome"]) ?? NULL;
-$sexo = htmlspecialchars($_POST["sexo"]) ?? NULL;
-$email = htmlspecialchars($_POST["email"]) ?? NULL;
-$especialidade = htmlspecialchars($_POST["especialidade"]) ?? NULL; 
-$nomeMedico = htmlspecialchars($_POST["medico"]) ?? NULL;
-$data = htmlspecialchars($_POST["data"]) ?? NULL;
-$horario = htmlspecialchars($_POST["horario"]) ?? NULL;
+$nome = $_POST["nome"] ?? NULL;
+$sexo = $_POST["sexo"] ?? NULL;
+$email = $_POST["email"] ?? NULL;
+$especialidade = $_POST["especialidade"] ?? NULL; 
+$nomeMedico = $_POST["medico"] ?? NULL;
+$data = $_POST["data"] ?? NULL;
+$horario = $_POST["horario"] ?? NULL;
 
 try {
     $pdo->beginTransaction();

@@ -3,7 +3,7 @@
 require "conexao-mysql.php";
 
 $pdo = conexaoMysql();
-$especialidade = htmlspecialchars($_GET["especialidade"]) ?? NULL;
+$especialidade = $_GET["especialidade"] ?? NULL;
 
 $sql = <<<SQL
     SELECT pe.nome

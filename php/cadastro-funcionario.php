@@ -7,19 +7,19 @@ exitWhenNotLoggedIn();
 
 $pdo = conexaoMysql();
 
-$nome = htmlspecialchars($_POST["nome"]) ?? NULL;
-$sexo = htmlspecialchars($_POST["sexo"]) ?? NULL;
-$email = htmlspecialchars($_POST["email"]) ?? NULL;
-$telefone = htmlspecialchars($_POST["telefone"]) != "" ? htmlspecialchars($_POST["telefone"]) : NULL;
-$cep = htmlspecialchars($_POST["cep"]) ?? NULL;
-$logradouro = htmlspecialchars($_POST["logradouro"]) ?? NULL;
-$cidade = htmlspecialchars($_POST["cidade"]) ?? NULL;
-$estado = htmlspecialchars($_POST["estado"]) ?? NULL;
-$inicioContrato = htmlspecialchars($_POST["data-inicio"]) ?? NULL;
-$salario = htmlspecialchars($_POST["salario"]) ?? NULL;
-$senhaHash = password_hash(htmlspecialchars($_POST["senha"]), PASSWORD_DEFAULT) ?? NULL;
-$especialidade = htmlspecialchars($_POST["especialidade"]) ?? NULL;
-$crm = htmlspecialchars($_POST["crm"]) ?? NULL;
+$nome = $_POST["nome"] ?? NULL;
+$sexo = $_POST["sexo"] ?? NULL;
+$email = $_POST["email"] ?? NULL;
+$telefone = $_POST["telefone"] != "" ? $_POST["telefone"] : NULL;
+$cep = $_POST["cep"] ?? NULL;
+$logradouro = $_POST["logradouro"] ?? NULL;
+$cidade = $_POST["cidade"] ?? NULL;
+$estado = $_POST["estado"] ?? NULL;
+$inicioContrato = $_POST["data-inicio"] ?? NULL;
+$salario = $_POST["salario"] ?? NULL;
+$senhaHash = password_hash(($_POST["senha"]), PASSWORD_DEFAULT) ?? NULL;
+$especialidade = $_POST["especialidade"] ?? NULL;
+$crm = $_POST["crm"] ?? NULL;
 
 try {
     $pdo->beginTransaction();

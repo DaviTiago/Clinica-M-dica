@@ -50,8 +50,8 @@ function checkUserCredentials($pdo, $email, $senha)
     }
 }
 
-$email = htmlspecialchars($_POST["email"]) ?? '';
-$senha = htmlspecialchars($_POST["senha"]) ?? '';
+$email = $_POST["email"] ?? '';
+$senha = $_POST["senha"] ?? '';
 
 $pdo = conexaoMysql();
 
